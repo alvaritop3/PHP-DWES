@@ -85,9 +85,13 @@ class DB {
         try {
             $consulta_producto = self::ejecuta_consulta('SELECT * FROM producto WHERE cod =:cod', $array);
             if ($consulta_producto->rowCount() == 1) {
-                $producto = new Producto($consulta_producto->fetch());
+                //Por cada producto, creo un nuevo objeto producto
+                $objeto_producto = new Producto($consulta_producto->fetch());
+                //Lo serializo y lo añado al array
+                $array_productos[] = $objeto_producto->jsonSerialize();
+                
             }
-            return $producto;
+            return $array_productos;
         } catch (Exception $ex) {
             throw $ex;
         }

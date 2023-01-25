@@ -13,7 +13,7 @@ class CestaCompra {
     }
 
     //A esta función le mandamos el código y las unidades que se quieren añadir
-    public function carga_articulo($unidades, $cod_prod) {
+    /*public function carga_articulo($unidades, $cod_prod) {
         //Si el producto ya existe, sumamos una unidad
         if (array_key_exists($cod_prod, $this->carrito)) {
             //Sumamos las unidades existentes más las nuevas         
@@ -31,6 +31,11 @@ class CestaCompra {
         }
         //Devolvemos el carrito
         return $this->carrito;
+    }*/
+    //Se ebcarga de ciger kis datis del formulario y enviarlos a anadir_json-php
+    public function anadirProductos(){
+        //Crear cabecera y cadena con parametros
+        
     }
 
     //Devuelve el coste de los productos que figuran en la cesta

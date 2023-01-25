@@ -1,7 +1,9 @@
 <?php
+include_once '../Modelo/DB.php';
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+//Recogemos el código del producto que vamos a añadir
 
+//Obtenemos un Json del producto que hemos seleccionado para añadir
+$json_producto = DB::obtieneProducto($cod_prod);
+
+?>
