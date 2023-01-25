@@ -71,9 +71,9 @@ require_once '../Servicios/CestaCompra.php';
                         <?php foreach ($array_productos as $producto): ?>
                             <tr>
                                 <td>
-                                    <form id='anadir' action='listado_productos_vista.php?familia=<?= $cod_familia ?>' method='post'>
+                                    <form id='anadir' action='' method='post'>
                                         <input type="number" id='unidades' name='unidades' value='1' class="cantidad">
-                                        <input type='submit' name='anadir' value='Añadir' onclick="cargarProductos()"/>
+                                        <input type='submit' name='anadir' onclick = "cargarProductos()" value='Añadir'/>
                                         <input type='hidden' id='cod' name='cod' value='<?= $producto->getCod() ?>'/>
                                     </form>
                                 </td>
