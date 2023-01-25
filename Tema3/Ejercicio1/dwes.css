@@ -1,0 +1,78 @@
+h1 {
+    padding-top: 15px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 50px;
+    font-family: Arial;
+    text-transform: uppercase;
+}
+#encabezado {
+    background-color:#18815d;
+    width:80%;
+    height: 150px;
+}
+#contenido {
+    padding-top: 50px;
+    text-align: center;
+    background-color:#EEEEEE;
+    width: 80%;
+    height: 600px;
+}
+#form_seleccion {
+    text-align: center;
+}
+body{
+    background-color: #0b3c2b;
+}
+
+form label{
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 25px;
+    font-family: Arial;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-left: 15px;
+}
+*{
+    font-weight: normal;
+    font-family: Arial;
+}
+
+.modifica{
+    background-color: #18815d;
+    color: #ffffff;
+    border-radius: 15px;
+    width : 150px;
+    height: 50px;
+}
+
+form option {
+    background-color: #ccede2;
+    color: #000000;
+    
+}
+p {
+    color: #000000;
+    font-weight: normal;
+    font-size: 25px;
+    font-family: Arial;
+}
+
+div{
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+h2{
+    color: #000000;
+    font-weight: bold;
+    font-size: 30px;
+}
+
