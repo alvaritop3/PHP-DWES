@@ -87,6 +87,7 @@ class DB {
             if ($consulta_producto->rowCount() == 1) {
                 //Por cada producto, creo un nuevo objeto producto
                 $objeto_producto = new Producto($consulta_producto->fetch());
+                /*CORREGIR*/
                 //Lo serializo y lo añado al array
                 $array_productos[] = $objeto_producto->jsonSerialize();
                 

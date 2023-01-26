@@ -12,26 +12,6 @@ class CestaCompra {
         return $this->carrito;
     }
 
-    //A esta función le mandamos el código y las unidades que se quieren añadir
-    /*public function carga_articulo($unidades, $cod_prod) {
-        //Si el producto ya existe, sumamos una unidad
-        if (array_key_exists($cod_prod, $this->carrito)) {
-            //Sumamos las unidades existentes más las nuevas         
-            $this->carrito[$cod_prod]['unidades'] += $unidades;
-        } else {
-            //Si no existe, metemos el objeto producto(valor) con la clave producto y las unidades como valor con la clave unidades
-            try {
-                //Añadimos el producto como clase al array
-                $this->carrito[$cod_prod]['producto'] = DB::obtieneProducto($cod_prod);
-                //Le ponemos las unidades que le hemos pasado como parámetro
-                $this->carrito[$cod_prod]['unidades'] = $unidades;
-            } catch (Exception $ex) {
-                throw $ex;
-            }
-        }
-        //Devolvemos el carrito
-        return $this->carrito;
-    }*/
     //Se ebcarga de ciger kis datis del formulario y enviarlos a anadir_json-php
     public function anadirProductos(){
         //Crear cabecera y cadena con parametros
@@ -63,6 +43,27 @@ class CestaCompra {
         }
     }
 
+    //A esta función le mandamos el código y las unidades que se quieren añadir
+    public function carga_articulo($unidades, $cod_prod) {
+        //Si el producto ya existe, sumamos una unidad
+        if (array_key_exists($cod_prod, $this->carrito)) {
+            //Sumamos las unidades existentes más las nuevas         
+            $this->carrito[$cod_prod]['unidades'] += $unidades;
+        } else {
+            //Si no existe, metemos el objeto producto(valor) con la clave producto y las unidades como valor con la clave unidades
+            try {
+                //Añadimos el producto como clase al array
+                $this->carrito[$cod_prod]['producto'] = DB::obtieneProducto($cod_prod);
+                //Le ponemos las unidades que le hemos pasado como parámetro
+                $this->carrito[$cod_prod]['unidades'] = $unidades;
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+        }
+        //Devolvemos el carrito
+        return $this->carrito;
+    }
+    
     //Recupera el contenido de la cesta de la sesión o crearla si no existía
     /* Para llamarlo del programa, al ser static, hay que igualar la variable a 
       $cesta = CestaCompra::cargarCesta(); */

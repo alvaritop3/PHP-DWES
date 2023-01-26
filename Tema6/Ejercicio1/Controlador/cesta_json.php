@@ -1,7 +1,11 @@
 <?php
+require_once '../Servicios/funciones.php';
+require_once '../Servicios/CestaCompra.php';
+comprobarSesion();
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+//Comprobamos si hay cesta creada, sino la creamos
+$cesta = CestaCompra::carga_cesta();
 
+echo json_encode($cesta->get_carrito());
+
+?>

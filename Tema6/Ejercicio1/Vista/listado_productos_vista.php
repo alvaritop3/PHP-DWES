@@ -2,6 +2,7 @@
 require_once '../Controlador/listado_productos.php';
 require_once '../Modelo/Producto.php';
 require_once '../Servicios/CestaCompra.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,10 +72,10 @@ require_once '../Servicios/CestaCompra.php';
                         <?php foreach ($array_productos as $producto): ?>
                             <tr>
                                 <td>
-                                    <form id='anadir' action='' method='post'>
+                                    <form id='anadir' onsubmit = 'anadirProductos(this); return false;'>
                                         <input type="number" id='unidades' name='unidades' value='1' class="cantidad">
-                                        <input type='submit' name='anadir' onclick = "cargarProductos()" value='Añadir'/>
-                                        <input type='hidden' id='cod' name='cod' value='<?= $producto->getCod() ?>'/>
+                                        <input type='submit' name='anadir' value='Añadir'/>
+                                        <input type='hidden'  name='cod' value='<?= $producto->getCod() ?>'/>
                                     </form>
                                 </td>
                                 <td><?= $producto->getNombre_corto() ?></td>

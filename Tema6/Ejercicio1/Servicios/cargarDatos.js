@@ -1,46 +1,71 @@
-//Elimina el contenido de la sección e introduce una tabla con los productos obtenidos
-const cargarProductos = () =>{
-    
-    let  datos = this;
-    console.log(datos);
-    
-    //Recojo el código del producto que está en un campo oculo
-    /*$cod = document.querySelector('#cod').value;
-    $unidades = document.querySelector('#unidades').value;
-    console.log($cod);
-    console.log($unidades);
-*/
+//Función JS cuando pulsamos en añadir
+const anadirProductos = (formulario) => {
+
+    //Recogemos los valores que vienen en el formulario
+    let codigo_producto = formulario.cod.value;
+    let unidades_producto = formulario.unidades.value;
+
+    console.log(`Código del producto añadido ${codigo_producto}`);
+    console.log(`Unidades del producto añadido: ${unidades_producto}`);
+
+
+    //Mandamos los datos a cesta compra json
+    let parametros = "codigo= "+codigo_producto+ "&unidades="+unidades_producto;
+
+    var xhttp = new XMLHttpRequest();
+
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            //Si hay respuesta
+            console.log("Funciona");
+            console.log(xhttp.responseText);
+            cargarCesta();
+
+        }
+    };
+
+    xhttp.open("POST", "../Controlador/anadir_json.php", true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send(parametros);
+
+    //Evito que se recargue la página
+    return false;
+}
+
+//Función que devuelve en formato Json los productos de la cesta y pinta la tabla
+const cargarCesta = () => {
+
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          
+
+        }
+    };
+    xhttp.open("GET", "../Controlador/cesta_json.php", true);
+    xhttp.send();
+
+
     //Elimino la tabla
     $tabla_eliminar = document.querySelector("#tablaCesta");
 
-    if ($tabla_eliminar !== null){
+    if ($tabla_eliminar !== null) {
         $tabla_eliminar.remove();
     }
-    
-    var xhttp = new XMLHttpRequest();       
- 	xhttp.onreadystatechange = function() {
- 	 if (this.readyState == 4 && this.status == 200) {  
- 	//Si hay respuesta
-        var producto = JSON.parse(this.response);
-        console.log(producto);
-		
-	 }
-	};
-	xhttp.open("GET", "../Controlador/productos_json.php", true);     
-	xhttp.send(); 
-	// para que no se siga el link que llama a esta funciÃ³n
-	return false;
-    
-    
-}
-//Recibe el array de productos y devuelve un elemento <table> con una fila por producto
-const crearTablaProductos = (arrayProductos) =>{
-  //Llama a crear_fila() y crear_formulario()
-  
+
 }
 
-const crear_fila=()=>{
-    
+
+//Recibe el array de productos y devuelve un elemento <table> con una fila por producto
+const crearTablaProductos = (arrayProductos) => {
+    //Llama a crear_fila() y crear_formulario()
+
+}
+
+const crear_fila = () => {
+
 }
 
 //Recibe el texto del botón, código del producto y nombre de la función que envía el formulario (anadirProductos)

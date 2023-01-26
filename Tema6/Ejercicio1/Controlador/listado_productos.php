@@ -46,21 +46,6 @@ if (isset($cod_familia)) {
     }
 }
 
-//Si se ha pulsado añadir
-/*if (isset($_POST['anadir'])) {
-    //Recogemos los datos hidden del formulario
-    $cod_prod = htmlspecialchars($_POST['cod']);
-
-    //Capturo las unidades que se han colocado en el input
-    $unidades = htmlspecialchars($_POST['unidades']);
-
-    //Ahora utilizo la función pasándole como parámetros las unidades y el código del producto
-    $cesta->carga_articulo($unidades, $cod_prod);
-
-    //IMPORTANTE GUARDAR LA CESTA EN LA SESIÓN
-    $cesta->guarda_cesta();
-}*/
-
 //Comprobamos si la cesta está vacía (Como es un objeto, tenemos que acceder a su atributo carrito
 $cesta_vacia = $cesta->is_vacia();
 ?>

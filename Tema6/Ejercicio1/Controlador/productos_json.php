@@ -1,5 +1,9 @@
 <?php
 include_once '../Modelo/DB.php';
+include_once '../Servicios/funciones.php';
+
+comprobarSesion();
+
 
 //Recogemos el código del producto que vamos a añadir
 
