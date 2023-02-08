@@ -5,9 +5,6 @@ const anadirProductos = (formulario) => {
     let codigo_producto = formulario.cod.value;
     let unidades_producto = formulario.unidades.value;
 
-    console.log(`Código del producto añadido ${codigo_producto}`);
-    console.log(`Unidades del producto añadido: ${unidades_producto}`);
-
 
     //Mandamos los datos a cesta compra json
     let parametros = "codigo= "+codigo_producto+ "&unidades="+unidades_producto;
@@ -17,11 +14,7 @@ const anadirProductos = (formulario) => {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            //Si hay respuesta
-            console.log("Funciona");
-            console.log(xhttp.responseText);
             cargarCesta();
-
         }
     };
 
@@ -40,7 +33,9 @@ const cargarCesta = () => {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          
+            console.log("Llama a cargar Cesta");
+            $array_cesta = xhttp.responseText;
+            console.log($array_cesta);
 
         }
     };

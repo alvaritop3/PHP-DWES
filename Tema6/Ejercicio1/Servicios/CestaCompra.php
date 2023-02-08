@@ -12,7 +12,7 @@ class CestaCompra {
         return $this->carrito;
     }
 
-    //Se ebcarga de ciger kis datis del formulario y enviarlos a anadir_json-php
+    //Se ebcarga de coger los datos del formulario y enviarlos a anadir_json-php
     public function anadirProductos(){
         //Crear cabecera y cadena con parametros
         
