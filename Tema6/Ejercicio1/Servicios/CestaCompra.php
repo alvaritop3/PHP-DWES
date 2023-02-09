@@ -12,12 +12,6 @@ class CestaCompra {
         return $this->carrito;
     }
 
-    //Se ebcarga de coger los datos del formulario y enviarlos a anadir_json-php
-    public function anadirProductos(){
-        //Crear cabecera y cadena con parametros
-        
-    }
-
     //Devuelve el coste de los productos que figuran en la cesta
     public function get_coste() {
         $coste_total = 0; 
@@ -45,6 +39,7 @@ class CestaCompra {
 
     //A esta función le mandamos el código y las unidades que se quieren añadir
     public function carga_articulo($unidades, $cod_prod) {
+        $producto = "No funciona carga_articulo";
         //Si el producto ya existe, sumamos una unidad
         if (array_key_exists($cod_prod, $this->carrito)) {
             //Sumamos las unidades existentes más las nuevas         
@@ -53,7 +48,8 @@ class CestaCompra {
             //Si no existe, metemos el objeto producto(valor) con la clave producto y las unidades como valor con la clave unidades
             try {
                 //Añadimos el producto como clase al array
-                $this->carrito[$cod_prod]['producto'] = DB::obtieneProducto($cod_prod);
+                $producto = DB::obtieneProducto($cod_prod);
+                $this->carrito[$cod_prod]['producto'] = $producto;
                 //Le ponemos las unidades que le hemos pasado como parámetro
                 $this->carrito[$cod_prod]['unidades'] = $unidades;
             } catch (Exception $ex) {

@@ -27,21 +27,8 @@ require_once '../Servicios/CestaCompra.php';
                 <?php if ($cesta_vacia): ?>
                     <h3>Cesta vacía</h3>
                 <?php else: ?>
-                    <table id='tablaCesta'>
-                        <tr>
-                            <th>Nombre</th>
-                            <th></th>
-                            <th>Unidades</th>
-                        </tr>
-
-                        <?php foreach ($cesta->get_carrito() as $prod): ?>
-                            <tr>
-                                <td><?= $prod["producto"]->getNombre_corto() ?></td>
-                                <td>x</td>
-                                <td><?= $prod["unidades"] ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-
+                    <table id="tabla_cesta">
+                      <!--Aquí va la tabla creada con DOM -->
                     </table>
                 <?php endif ?>
                 <form id='vaciar' action='<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method='post'>
@@ -75,7 +62,7 @@ require_once '../Servicios/CestaCompra.php';
                                     <form id='anadir' onsubmit = 'anadirProductos(this); return false;'>
                                         <input type="number" id='unidades' name='unidades' value='1' class="cantidad">
                                         <input type='submit' name='anadir' value='Añadir'/>
-                                        <input type='hidden'  name='cod' value='<?= $producto->getCod() ?>'/>
+                                        <input type='hidden'  name='cod' value='<?=$producto->getCod()?>'/>
                                     </form>
                                 </td>
                                 <td><?= $producto->getNombre_corto() ?></td>

@@ -80,18 +80,24 @@ class DB {
 
     //Aquí hacemos el método de obtieneProducto(codigo del producto)
     public static function obtieneProducto($cod_prod) {
-        //Esta es la array que le introduzco a ejecuta_consulta
-        $array = [':cod' => $cod_prod];
+        
         try {
-            $consulta_producto = self::ejecuta_consulta('SELECT * FROM producto WHERE cod =:cod', $array);
-            if ($consulta_producto->rowCount() == 1) {
+            //Esta es la array que le introduzco a ejecuta_consulta
+            $array = [':cod' =>$cod_prod];
+            $producto = "Falla ObtieneProducto";
+            $resultado = self::ejecuta_consulta('SELECT * FROM producto WHERE cod =:cod', $array);
+            
+            //NO ENTRA EN EL IF
+            if ($resultado->rowCount() == 1) {
                 //Por cada producto, creo un nuevo objeto producto
-                $objeto_producto = new Producto($consulta_producto->fetch());   
-            }
-            return $objeto_producto;
+                $producto = new Producto($resultado->fetch());   
+            } 
+            
         } catch (Exception $ex) {
             throw $ex;
         }
+        
+        return $producto;
     }
 
     //Función verifica cliente

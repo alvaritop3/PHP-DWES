@@ -45,17 +45,20 @@ class Producto implements JsonSerializable {
         return $this->descripcion;
     }
 
-    public function jsonSerialize() {
-        $objeto_producto = [
-            'codigo' => $this->get_codigo(),
-            'nombre' => $this->get_nombre(),
-            'nombre_corto' => $this->get_nombre_corto(),
-            'PVP' => $this->get_PVP(),
-            'familia' => $this->get_familia()
-         ];
+    public function jsonSerialize(): mixed {
+        $objeto_producto = get_object_vars($this);
         return $objeto_producto;
+        
+         /*[
+            'codigo' => $this->cod,
+            'nombre' => $this->nombre,
+            'nombre_corto' => $this->nombre_corto,
+            'PVP' => $this->pvp,
+            'familia' => $this->familia
+         ];*/
+        
     }
-    // Para convertir el objeto a array también se puede llamar a la función get_object_vars($this);
+  
 
 
 }

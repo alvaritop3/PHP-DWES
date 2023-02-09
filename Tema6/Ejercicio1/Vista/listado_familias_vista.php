@@ -45,19 +45,14 @@ require_once '../Servicios/CestaCompra.php';
                 <?php if ($cesta_vacia): ?>
                     <h3>Cesta vacía</h3>
                 <?php else: ?>
-                    <table>
-                        <tr>
+                    <table id="tabla_cesta">
+                        <!--<tr>
                             <th>Nombre</th>
                             <th></th>
                             <th>Unidades</th>
-                        </tr>
-                        <?php foreach ($cesta->get_carrito() as $prod): ?>
-                            <tr>
-                                <td><?= $prod["producto"]->getNombre_corto() ?></td>
-                                <td>x</td>
-                                <td><?= $prod["unidades"] ?></td>
-                            </tr>
-                        <?php endforeach; ?>
+                        </tr>-->
+                            <!-- QUITAR-->
+                            <tr><td>Hay algo en la cesta</td></tr>
                     </table>
                 <?php endif ?>
 
